@@ -1,0 +1,23 @@
+﻿@model TatilSeyahatProje.Models.Siniflar.BlogYorum
+
+@foreach (var x in Model.Deger1)
+{
+    <div class="single-grid">
+        <img src="@x.BlogIMG" alt="" />
+        <a href="/Blog/BlogDetay/@x.ID">@x.Baslik</a>
+        <p>@x.Aciklama</p>
+    </div>
+}
+<br />
+@{ if (ViewBag.Fazlalik)
+    {
+        <hr style="border:solid;" />
+        <div style="text-align:center;">
+            @*<input type="submit" value="Daha Fazlasını Gör" />*@
+            <form method="post">
+                <input type="hidden" value="@ViewBag.Fazlalik" />
+                <button class="success">Daha Fazlasını Gör</button>
+            </form>
+        </div>
+    }
+}

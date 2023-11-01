@@ -1,0 +1,26 @@
+﻿<div class="padding1">
+    <h4>En Beğendiğim Yerler</h4>
+    <div class="box-left">
+        @foreach (var x in Model)
+        {
+            <div class="bot-img">
+                <a href="/Blog/BlogDetay/@x.ID"><img src="@x.BlogIMG" alt="" style="width:120px; height:68px;" /></a>
+            </div>
+            <div class="bot-desc">
+                @{var y = ""; if (x.Aciklama.Length > 70)
+                    {
+                        y = x.Aciklama.Substring(0, 67) + "...";
+                    }
+                    else
+                    {
+                        y = x.Aciklama;
+                    }
+                }
+                <p>@y</p>
+            </div>
+            <div class="clear"></div>
+        }
+    </div>
+    @Html.Action("Partial5","Home")
+</div>
+<div class="clear"></div>

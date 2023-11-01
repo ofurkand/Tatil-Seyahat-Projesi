@@ -1,0 +1,28 @@
+﻿@using TatilSeyahatProje.Models.Siniflar
+@model List<Blog>
+<div class="right">
+    @foreach (var e in Model)
+    {
+        <div class="left">
+            <div class="bot-left">
+                <img src="@e.BlogIMG" alt="" style="width:400px; height150px;" />
+            </div>
+            <div class="left-text">
+                <h4>@e.Baslik</h4>
+                <span class="doller">@e.Tarih.ToString("dd.MM.yyyy")</span>
+                @{var y = ""; if (e.Aciklama.Length > 85)
+                    {
+                        y = e.Aciklama.Substring(0, 82) + "...";
+                    }
+                    else
+                    {
+                        y = e.Aciklama;
+                    }
+                }
+                <p>@y</p>
+                <p><a href="#"><span class="read">Devamını Oku >></span></a></p>
+            </div>
+        </div>
+    }
+</div>
+

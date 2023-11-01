@@ -1,0 +1,81 @@
+﻿@model TatilSeyahatProje.Models.Siniflar.BlogYorum
+@{
+    ViewBag.Title = "BlogDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Personal Blog a Blogging Category Flat Bootstarp  Responsive Website Template | Single :: w3layouts</title>
+    <link href="~/web2/web/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="~/web2/web/css/style.css" rel='stylesheet' type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Personal Blog Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!----webfonts---->
+    <link href='http://fonts.googleapis.com/css?family=Oswald:100,400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic' rel='stylesheet' type='text/css'>
+    <!----//webfonts---->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!--end slider -->
+    <!--script-->
+</head>
+<body>
+    <!---header---->
+    <div class="header">
+    </div>
+    <!--/header-->
+    <div class="single">
+        <div class="container">
+            <div class="col-md-8 single-main">
+                <div class="single-grid">
+                    @foreach (var item in Model.Deger1)
+                    {
+                        <img src="@item.BlogIMG" alt="" style="margin-bottom:20px;" />
+                        <h2>@item.Baslik</h2>
+                        <p>@item.Aciklama</p>
+                    }
+                </div>
+                <div class="yorumlar">
+                    <ul class="comment-list">
+                        @{if (Model.Deger2.Count() == 0)
+                            {
+                                <h4 style="color:firebrick;text-align:center;">İLK YORUM YAPAN SEN OL!</h4>
+                            }
+                            else
+                            {
+                                <h3 style="text-align:center;">Yorum Listesi</h3><br />
+                                foreach (var item2 in Model.Deger2)
+                                {
+                                    <li style="margin-bottom:15px;">
+                                        <img src="~/web2/web/images/avatar.png" class="img-responsive" alt="">
+                                        <div class="desc">
+                                            <p><span style="font-weight:bold;">@item2.KullaniciAdi:</span> @item2.Yorum</p>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </li>
+                                }
+                            }}
+                    </ul>
+                    </div>
+                
+                @Html.Action("YorumYap", "Blog")
+            </div>
+
+            @Html.Action("Partial1","Blog")
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    </body>
+    <!---->
+</html>
+
+

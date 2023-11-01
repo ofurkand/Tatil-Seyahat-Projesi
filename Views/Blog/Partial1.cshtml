@@ -1,0 +1,21 @@
+﻿@model TatilSeyahatProje.Models.Siniflar.BlogYorum
+<div class="col-md-4 side-content">
+    <div class="recent">
+        <h3>SON BLOGLAR</h3>
+        <ul>
+            @foreach (var item in Model.Deger3)
+            {
+                <li><a href="/Blog/BlogDetay/@item.ID">'@item.Baslik' konusu</a></li>
+            }
+        </ul>
+    </div>
+    <div class="comments">
+        <h3>SON YORUMLAR</h3>
+        <ul>
+            @foreach (var x in Model.Deger2)
+            {
+                <li><a href="#">@x.KullaniciAdi</a>, <a href="/Blog/BlogDetay/@x.BlogID">'@x.Blog.Baslik' konusunda</a></li>
+            }
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/web2/web/css/style.css" rel='stylesheet' type='text/css' />
+<link href="~/web2/web/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<div class="content-form" style="text-align:center; margin-right: 200px; margin-left:200px; min-width:400px;">
+    <h3>Bize Ulaşın</h3>
+    <!--<p style="font-size: 12px;">Şikayet, istek veya önerilerinizi buradan bize bildirebilirsiniz.</p>-->
+    <form method="post">
+        <div class="none" style="display:flex;flex-direction:row;">
+            <input type="text" placeholder="Adınız" style="margin-right: 10px; text-align: center; border: ridge;" name="Ad" required />
+            <input type="text" placeholder="Soyadınız" style="margin-left: 10px; text-align: center; border: ridge;" name="Soyad" required />
+        </div>
+        <input type="text" placeholder="Mail Adresiniz" style="text-align: center; border: ridge;" name="Mail" required />
+        <input type="text" placeholder="Başlık" style="text-align: center; font-weight:bold; border: ridge;" name="Konu" />
+        @*<div class="col-md-10" style="font-size:30px;">
+            <select name="Kategori">
+                <option value>Kategori Seçiniz</option>
+                @foreach (var x in ViewBag.konular)
+                {
+                    <option>@x</option>
+                }
+            </select>
+        </div>
+        *@
+        <textarea placeholder="İletiniz" name="Ileti" style="text-align:center; place-content:center; border:ridge;"></textarea>
+        <p style="color:gray; padding-top:10px;">En geç 1 iş günü içerisinde cevap veriyoruz.</p>
+        <input type="submit" value="GÖNDER" />
+    </form>
+    <br />
+</div>
+
