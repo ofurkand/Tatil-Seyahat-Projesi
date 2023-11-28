@@ -280,6 +280,7 @@
     <Content Include="weblogin Tema\fonts\Audiowide-Regular.ttf" />
     <Content Include="Views\Admin\Iletisim.cshtml" />
     <Content Include="Views\Blog\Partial2.cshtml" />
+    <Content Include="Views\Admin\IletisimGetir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

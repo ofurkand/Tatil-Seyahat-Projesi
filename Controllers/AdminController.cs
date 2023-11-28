@@ -6,11 +6,11 @@ using System.Web.Mvc;
 using TatilSeyahatProje.Models.Siniflar;
 namespace TatilSeyahatProje.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         // GET: Admin
         Context c = new Context();
-        [Authorize]
         public ActionResult Index()
         {
             var degerler = c.blogs.ToList();
@@ -99,6 +99,30 @@ namespace TatilSeyahatProje.Controllers
         {
             var iletisim = c.iletisims.ToList();
             return View(iletisim);
+        }
+        public ActionResult IletisimSil(int ID)
+        {
+            var b = c.iletisims.Find(ID);
+            c.iletisims.Remove(b);
+            c.SaveChanges();
+            return RedirectToAction("Iletisim");
+        }
+
+        public ActionResult IletisimGetir(int ID)
+        {
+            var i = c.iletisims.Find(ID);
+            return View(i);
+        }
+        [HttpPost]
+        public ActionResult IletisimGuncelle(Iletisim b)
+        {
+            var i = c.iletisims.Find(b.ID);
+            i.Mesaj = b.Mesaj;
+            i.Konu = b.Konu;
+            i.AdSoyad = b.AdSoyad;
+            i.Mail = b.Mail;
+            c.SaveChanges();
+            return RedirectToAction("Iletisim");
         }
     }
 }
